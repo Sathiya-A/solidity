@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <script src="web3.min.js"></script>
+ <script>
+    
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+        var sybexcon = web3.eth.contract([
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tot",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_rollno",
+				"type": "uint256"
+			}
+		],
+		"name": "showstudents",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_isbn",
+				"type": "uint256"
+			}
+		],
+		"name": "search",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "returnfines",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_isbn",
+				"type": "uint256"
+			}
+		],
+		"name": "ret",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_rollno",
+				"type": "uint256"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_dept",
+				"type": "string"
+			}
+		],
+		"name": "addstudents",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_isbn",
+				"type": "uint256"
+			},
+			{
+				"name": "_bname",
+				"type": "string"
+			},
+			{
+				"name": "_aname",
+				"type": "string"
+			}
+		],
+		"name": "books",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_rollno",
+				"type": "uint256"
+			},
+			{
+				"name": "_isbn",
+				"type": "uint256"
+			}
+		],
+		"name": "getbooks",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_rollno",
+				"type": "uint256"
+			},
+			{
+				"name": "_isbn",
+				"type": "uint256"
+			}
+		],
+		"name": "returnbooks",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]);
+        var sybex = sybexcon.at('0x7864fac9b9bc905e7b688efe37217657ba1f35c5');
+         if(!web3.isConnected()) {
+  
+        console.log("Ok");
+        
+      } else {
+        console.log("no");
+      }
+      web3.version.getNetwork((err, netId) => {
+            switch (netId) {
+              case "1":
+                console.log('This is mainnet')
+                break
+              case "2":
+                console.log('This is the deprecated Morden test network.')
+                break
+              case "3":
+                console.log('This is the ropsten test network.')
+                break
+              case "4":
+                console.log('This is the Rinkeby test network.')
+                break
+              case "42":
+                console.log('This is the Kovan test network.')
+                break
+              default:
+                console.log('This is an unknown network.')
+            }
+        })
+        function addbooks1(){
+            //alert("haiii");
+             var a=parseInt(document.getElementById("value1").value);
+             var b=String(document.getElementById("value2").value);
+             var c=String(document.getElementById("value3").value);
+             sybex.books(a,b,c, function(error,result){
+                console.log(result);
+
+                 });
+           
+             }
+      function ret1(){
+            var d=parseInt(document.getElementById("value4").value);
+            
+            sybex.ret(d,function(error,result){
+               alert(result);
+                });
+            }
+      function tot1(){
+         sybex.tot(function(error,result){
+              alert(result);
+              });
+          }
+      function addstudents1(){
+         var e=parseInt(document.getElementById("value5").value);
+          var f=String(document.getElementById("value6").value);
+          var g=String(document.getElementById("value7").value);
+          sybex.addstudents(e,f,g,function(error,result){
+               console.log(result);
+            });
+        }
+      function showstudents1()
+       {
+         var h=parseInt(document.getElementById("value8").value);
+         sybex.showstudents(h,function(error,result){
+            alert(result);
+           });
+       }
+     function search1()
+      {
+        var i=parseInt(document.getElementById("value9").value);
+        sybex.search(i,function(error,result){
+          alert(result);
+          });
+      }
+     function getbooks1()
+     {
+        
+       var j=parseInt(document.getElementById("value10").value);
+       var k=parseInt(document.getElementById("value11").value);
+       sybex.getbooks(j,k,function(error,result){
+           alert(result);
+           });
+     }
+    function returnbooks1()
+      {
+	
+        var l=parseInt(document.getElementById("value12").value);
+       var m=parseInt(document.getElementById("value13").value);
+      sybex.returnbooks(l,m,function(error,result){
+       alert(result);
+	console.log(result);
+          });
+	
+        }
+   function returnfine1()
+    { 
+      sybex.returnfines(function(error,result){
+              alert(result);
+              });
+       
+    }
+   
+    
+  
+    
+</script>
+</head>
+<body>
+   <p> adding books </p>
+   <input id="value1" type="text">
+   <input id="value2" type="text">
+   <input id="value3" type="text">
+   <input type="button" onclick="addbooks1()" value="addbooks"><br>
+   <p>retriving books</p>
+   <input id="value4" type="text">
+   <input type="button" onclick="ret1()" value="retrivebooks"><br>
+   <p>total books</p>
+   <input type="button" onclick="tot1()" value="totalbooks"><br>
+   <p> add students </p>
+   <input id="value5" type="text">
+   <input id="value6" type="text">
+   <input id="value7" type="text">
+   <input type="button" onclick="addstudents1()" value="adding students"><br>
+   <p>retriving students </p>
+   <input id="value8" type="text">
+   <input type="button" onclick="showstudents1()" value="retrivestudents"><br>
+   <p>search books</p>
+   <input id="value9" type="text">
+   <input type="button" onclick="search1()" value="search"><br>
+   <p> getting books </p>
+   <input id="value10" type="text">
+   <input id="value11" type="text">
+   <input type="button" onclick="getbooks1()" value="getting books"><br>
+   <p>returning books </p>
+   <input id="value12" type="text">
+   <input id="value13" type="text">
+   <input type="button" onclick="returnbooks1()" value="returning books"></br>
+   <p>returning fine </p>
+   <input type="button" onclick="returnfine1()" value="returning fine"></br>
+
+</body>
+</html>
+
+   
+   
