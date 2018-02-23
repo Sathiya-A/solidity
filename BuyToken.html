@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="web3.min.js"></script>
+<script src="script.js"></script>
+<meta charset="utf-8">
+<title> buying tokens </title>
+</head>
+ <body style="background-color:pink">
+ <h1 style="color:black;"> <center>To buy ether </center> </h1>
+ 
+    <input id="value31" type="text" placeholder="value">
+    <input id="value32" type="text" placeholder="account">
+    <input type="button" onclick="tokens()" value="transfer ether">
+<script>
+		//web3.eth.defaultAccount
+		function tokens()
+		{
+		var eth=document.getElementById("value31").value;
+		eth=web3.toWei(eth, "ether");
+		web3.eth.defaultAccount=document.getElementById("value32").value;
+		sybex.transferether({value:eth}, function(err, result){ if(!err) 
+
+alert(result);
+window.location="cho.html"; });	
+		}
+	</script>
+        </body>
+        </html>
+
