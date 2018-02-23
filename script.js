@@ -1,256 +1,270 @@
-
-    web3.eth.defaultAccount = web3.eth.accounts[0];
+web3.eth.defaultAccount = web3.eth.accounts[0];
         var sybexcon = web3.eth.contract([
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "pid",
-            "type": "uint256"
-          }
-        ],
-        "name": "returndetails",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bytes32"
-          },
-          {
-            "name": "",
-            "type": "uint256"
-          },
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "totalproducts",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bytes32[]"
-          },
-          {
-            "name": "",
-            "type": "uint256[]"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "totalSupply",
-        "outputs": [
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "symbol",
-        "outputs": [
-          {
-            "name": "",
-            "type": "string"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "pid",
-            "type": "uint256"
-          }
-        ],
-        "name": "search",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "_add_",
-            "type": "address"
-          }
-        ],
-        "name": "balanceOf",
-        "outputs": [
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "name",
-        "outputs": [
-          {
-            "name": "",
-            "type": "string"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "cid",
-            "type": "uint256"
-          },
-          {
-            "name": "_name",
-            "type": "string"
-          }
-        ],
-        "name": "addcustomer",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [],
-        "name": "transferether",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "pid",
-            "type": "uint256"
-          },
-          {
-            "name": "_prtname",
-            "type": "bytes32"
-          },
-          {
-            "name": "_count",
-            "type": "uint256"
-          },
-          {
-            "name": "_price",
-            "type": "uint256"
-          }
-        ],
-        "name": "addproducts",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "customer",
-            "type": "address"
-          },
-          {
-            "name": "_amo_",
-            "type": "uint256"
-          }
-        ],
-        "name": "transfer",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "cid",
-            "type": "uint256"
-          },
-          {
-            "name": "pid",
-            "type": "uint256"
-          },
-          {
-            "name": "number",
-            "type": "uint256"
-          },
-          {
-            "name": "sttime",
-            "type": "uint256"
-          }
-        ],
-        "name": "getproducts",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "cid",
-            "type": "uint256"
-          },
-          {
-            "name": "pid",
-            "type": "uint256"
-          },
-          {
-            "name": "etime",
-            "type": "uint256"
-          },
-          {
-            "name": "customer",
-            "type": "address"
-          }
-        ],
-        "name": "retproducts",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      }
-    ]);
-   var sybex = sybexcon.at('0xd2ccbc83cee67365969cb774b34e26bc89e43c69');
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "a",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalproducts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			},
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "pid",
+				"type": "uint256"
+			}
+		],
+		"name": "search",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "pid",
+				"type": "uint256"
+			}
+		],
+		"name": "returndetails",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_add_",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "cid",
+				"type": "uint256"
+			},
+			{
+				"name": "pid",
+				"type": "uint256"
+			},
+			{
+				"name": "etime",
+				"type": "uint256"
+			},
+			{
+				"name": "customer",
+				"type": "address"
+			}
+		],
+		"name": "retproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "transferether",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "cid",
+				"type": "uint256"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "addcustomer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "pid",
+				"type": "uint256"
+			},
+			{
+				"name": "_prtname",
+				"type": "bytes32"
+			},
+			{
+				"name": "_count",
+				"type": "uint256"
+			},
+			{
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "addproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"name": "_amo_",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "cid",
+				"type": "uint256"
+			},
+			{
+				"name": "pid",
+				"type": "uint256"
+			},
+			{
+				"name": "number",
+				"type": "uint256"
+			},
+			{
+				"name": "sttime",
+				"type": "uint256"
+			}
+		],
+		"name": "getproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]);
+  var sybex = sybexcon.at('0x8db199939c15a87b6024216579815a1bf2772fe5');
+   
          if(!web3.isConnected()) {
   
         console.log("Ok");
@@ -279,19 +293,36 @@
                 console.log('This is an unknown network.')
             }
         })
-     function list()
-       {
-         sybex.totalproducts(function(error,result){
-                if(!error){
-			alert(result); 
-                        }
-                else{
-                     alert(error);
-                   }
-             });
-           
-             }
-        
+    var  count=0;
+     function products()
+          {
+            sybex.totalproducts ( 
+function(err, result)
+{ 
+var d=[];
+var l=[];
+var res=[];
+for(j=0;j<count;j++)
+{
+var a=result[0][j];
+    var s = '';
+    for (var k = 0; k < a.length; k += 2) 
+    {
+      s+= String.fromCharCode(parseInt(a.substr(k, 2), 16));
+    }
+d.push(s);
+}
+for(i=0;i<count;i++){
+var b=result[1][i];
+l.push(b);
+}
+for(y=0;y<count;y++)
+res.push(" " + d[y]+" -  "+l[y]+ "  ");
+document.getElementById("pli").innerHTML=res;
+});
+ 
+}
+       
      function addingproducts()
         {
        var a=document.getElementById("value1").value;
@@ -306,26 +337,17 @@
                      alert(error);
                    }
              });
+      count=count+1;
            
              }
-   function ret()
-    {
-       var e=document.getElementById("value5").value;
-       sybex.returndetails(e,function(error,result){
-                if(!error){
-			alert(result); 
-                        }
-                else{
-                     alert(error);
-                   }
-             });
-           
-             }
+   
    function getproducts()
     {
       var f=document.getElementById("value6").value;
       var g=document.getElementById("value7").value;
-       sybex.getproducts(f,g,function(error,result){
+      var l=document.getElementById("value13").value
+      var m=document.getElementById("value14").value
+       sybex.getproducts(f,g,l,m,function(error,result){
                 if(!error){
 			alert(result); 
                         }
@@ -335,18 +357,7 @@
              });
            
              }
-  function balance(){
-      var h=document.getElementById("value10").value;
-      sybex.balanceOf(h,function(error,result){
-                if(!error){
-			alert(result); 
-                        }
-                else{
-                     alert(error);
-                   }
-             });
-           
-             }
+  
  function search(){
       var i=document.getElementById("value8").value;
        sybex.search(i,function(error,result){
@@ -359,5 +370,35 @@
              });
            
              }
-
+function addcustomers()
+    {
+     var j=document.getElementById("value11").value;
+     var k=document.getElementById("value12").value;
+     sybex.addcustomer(j,k,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+           
+   }
+function retproducts()
+{
+   var n=document.getElementById("value41").value;
+     var o=document.getElementById("value42").value;
+    var p=document.getElementById("value15").value;
+     var q=document.getElementById("value16").value;
+    sybex.retproducts(n,o,p,q,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+           
+  
+}
    
