@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta charset="utf-8">
+   <title> chocolate shop </title>
+ <h2 style="color:red;"><center> Admin page </center></h2>
+</head>
+<body>
+<input id="c1" type="text">
+<input id="c2" type="password">
+<input type="button" onclick="admin()" value="admin">
+<input type="button" onclick="customer()" value="customer">
+<script>
+function admin()
+{
+var a= document.getElementById("c1").value;
+var b= document.getElementById("c2").value;
+
+if(a=='Sathiya' && b==123)
+{
+window.location="adminpage.html";
+}
+else
+{
+alert("invalid username or password");
+}
+}
+function customer()
+{
+var a= document.getElementById("c1").value;
+var b= document.getElementById("c2").value;
+if(a=='Sathiya' && b==123)
+{
+window.location="cho.html";
+}
+else
+{
+alert("invalid username or password");
+}
+}
+</script>
+</body>
+</html>
+
