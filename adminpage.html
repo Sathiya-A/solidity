@@ -1,0 +1,110 @@
+<html>
+<head> 
+<script src="web3.min.js"></script>
+<script src="script.js"></script>
+<meta charset="utf-8">
+<title>admin management </title>
+</head>
+ <body style="background-color:pink">
+ <h1 style="color:black;"> <center>Admin management</center> </h1>
+ <form>
+     <p><center>  retriving products  </center>  </p>
+    <center><table border="1" style="width:60%">
+    <tr>
+    <td>
+    <input id="value5" type="text" placeholder="product id">
+    <input type ="button" onclick="ret()" value="retriving products">
+    </tr>
+    </td>
+    </center>
+    </table>
+
+
+
+
+
+     <p> checking balance</p>
+    </table>
+    <center><table border="1" style="width:60%">
+    <tr>
+    <td>
+    <input id="value10" type="text" placeholder="address">
+    <input type ="button" onclick="balance()" value="chceking balance">
+    </tr>
+    </td>
+    </center>
+    </table>
+
+
+
+
+   <p>insufficient products</p>
+   <table>
+   <center><table border="1" style="width:60%">
+   <tr>
+   <td>
+   <input type ="button" onclick="a()" value="insufficient products">
+    </tr>
+    </td>
+    </center>
+    </table>
+
+
+
+
+
+    
+
+    
+
+<script>     
+     
+    function ret()
+    {
+       var e=document.getElementById("value5").value;
+       sybex.returndetails(e,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+    
+
+
+
+    function balance(){
+      var h=document.getElementById("value10").value;
+      sybex.balanceOf(h,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+           
+             }
+
+
+function a(){
+   sybex.a(function(error,result){
+       if(!error)
+           {
+            alert(result);
+           }
+       else{
+           alert(error);
+           }
+       });
+   }
+
+  
+
+   
+ </script>     
+</form>
+</body>
+</html>
+
