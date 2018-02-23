@@ -1,0 +1,513 @@
+<html>
+<head> 
+<script src="web3.min.js"></script>
+<meta charset="utf-8">
+<title>inventory management </title>
+</head>
+ <body style="background-color:pink">>
+    <h1 style="color:black;"> <center>chocolate shop </center> </h1>
+    <form>
+    <p><center> adding products</center> </p>
+    <center><table border="1" style="width:60%">
+    <tr> 
+    <td>
+    <input id="value1" type="text" placeholder="product id">
+    <input id="value2" type="text" placeholder="product name">
+    <input id="value3" type="text" placeholder="product count">
+    <input id="value4" type="text" placeholder="product price">
+    <input type="button" onclick="addingproducts()" value="adding products">
+    </td>
+    </tr>
+    </center>
+    </table>
+
+ 
+    
+    <p> getting products </p>
+    </table>
+    <center><table border="1" style="width:60%">
+    <tr>
+    <td>
+    <input id="value6" type="text" placeholder="cid">
+    <input id="value7" type="text" placeholder="pid">
+    <input id="value13" type="text" placeholder="count">
+    <input id="value14" type="text" placeholder="sttime">
+    
+    <input type ="button" onclick="getproducts()" value="getting products">
+    </tr>
+    </td>
+    </center>
+    </table>
+
+    
+   <p> search </p>
+    <table>
+    <center><table border="1" style="width:60%">
+    <tr>
+    <td>
+    <input id="value8" type="text" placeholder="id">
+  
+    <input type ="button" onclick="search()" value="search">
+    </tr>
+    </td>
+    </center>
+    </table>
+   
+
+ <p> list of total products  </p>
+ <table>
+    <center><table border="1" style="width:60%">
+    <tr>
+    <td>
+    
+    <input type ="button" onclick="products()" value="listing products">
+    </tr>
+    </td>
+    </center>
+    </table>
+
+<p> add customers </p>
+<table>
+    <center><table border="1" style="width:60%">
+    <tr>
+    <td>
+    <input id="value11" type="text" placeholder="cid">
+    <input id="value12" type="text" placeholder="name">
+    
+    <input type ="button" onclick="addcustomers()" value="add customers">
+    </tr>
+    </td>
+    </center>
+    </table>
+
+<p> returning products </p>
+<table>
+  <center><table border="1" style="width:60%">
+  <tr>
+  <td>
+  <input id="value41" type="text" placeholder="cid">
+  <input id="value42" type="text" placeholder="pid">
+  <input id="value15" type="text" placeholder="etime">
+  <input id="value16" type="text" placeholder="customer">
+  <input type="button" onclick="retproducts()" value="return products">
+  </tr>
+  </td>
+  <center>
+  </table>
+   
+   
+</form>
+<h3 id="pli"> </h3>
+<script>
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+        var sybexcon = web3.eth.contract([
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "pid",
+            "type": "uint256"
+          }
+        ],
+        "name": "returndetails",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32"
+          },
+          {
+            "name": "",
+            "type": "uint256"
+          },
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "totalproducts",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bytes32[]"
+          },
+          {
+            "name": "",
+            "type": "uint256[]"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "totalSupply",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "symbol",
+        "outputs": [
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "pid",
+            "type": "uint256"
+          }
+        ],
+        "name": "search",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "_add_",
+            "type": "address"
+          }
+        ],
+        "name": "balanceOf",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "name",
+        "outputs": [
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "cid",
+            "type": "uint256"
+          },
+          {
+            "name": "_name",
+            "type": "string"
+          }
+        ],
+        "name": "addcustomer",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "transferether",
+        "outputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "pid",
+            "type": "uint256"
+          },
+          {
+            "name": "_prtname",
+            "type": "bytes32"
+          },
+          {
+            "name": "_count",
+            "type": "uint256"
+          },
+          {
+            "name": "_price",
+            "type": "uint256"
+          }
+        ],
+        "name": "addproducts",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "customer",
+            "type": "address"
+          },
+          {
+            "name": "_amo_",
+            "type": "uint256"
+          }
+        ],
+        "name": "transfer",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "cid",
+            "type": "uint256"
+          },
+          {
+            "name": "pid",
+            "type": "uint256"
+          },
+          {
+            "name": "number",
+            "type": "uint256"
+          },
+          {
+            "name": "sttime",
+            "type": "uint256"
+          }
+        ],
+        "name": "getproducts",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "cid",
+            "type": "uint256"
+          },
+          {
+            "name": "pid",
+            "type": "uint256"
+          },
+          {
+            "name": "etime",
+            "type": "uint256"
+          },
+          {
+            "name": "customer",
+            "type": "address"
+          }
+        ],
+        "name": "retproducts",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ]);
+  var sybex = sybexcon.at('0xd2ccbc83cee67365969cb774b34e26bc89e43c69');
+   
+
+         if(!web3.isConnected()) {
+  
+        console.log("Ok");
+        
+      } else {
+        console.log("no");
+      }
+      web3.version.getNetwork((err, netId) => {
+            switch (netId) {
+              case "1":
+                console.log('This is mainnet')
+                break
+              case "2":
+                console.log('This is the deprecated Morden test network.')
+                break
+              case "3":
+                console.log('This is the ropsten test network.')
+                break
+              case "4":
+                console.log('This is the Rinkeby test network.')
+                break
+              case "42":
+                console.log('This is the Kovan test network.')
+                break
+              default:
+                console.log('This is an unknown network.')
+            }
+        })
+    var  count=0;
+     function products()
+          {
+            sybex.totalproducts ( 
+function(err, result)
+{ 
+var d=[];
+var l=[];
+var res=[];
+
+
+for(j=0;j<count;j++)
+{
+var a=result[0][j];
+    var s = '';
+
+    for (var k = 0; k < a.length; k += 2) 
+    {
+      s+= String.fromCharCode(parseInt(a.substr(k, 2), 16));
+
+    }
+d.push(s);
+}
+
+for(i=0;i<count;i++){
+var b=result[1][i];
+l.push(b);
+}
+
+for(y=0;y<count;y++)
+res.push(" " + d[y]+" -  "+l[y]+ "  ");
+document.getElementById("pli").innerHTML=res;
+});
+ 
+
+}
+
+       
+     function addingproducts()
+        {
+       var a=document.getElementById("value1").value;
+       var b=document.getElementById("value2").value;
+       var c=document.getElementById("value3").value;
+       var d=document.getElementById("value4").value;
+       sybex.addproducts(a,b,c,d,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+      count=count+1;
+           
+             }
+   
+   function getproducts()
+    {
+      var f=document.getElementById("value6").value;
+      var g=document.getElementById("value7").value;
+      var l=document.getElementById("value13").value
+      var m=document.getElementById("value14").value
+       sybex.getproducts(f,g,l,m,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+           
+             }
+  
+ function search(){
+      var i=document.getElementById("value8").value;
+       sybex.search(i,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+           
+             }
+function addcustomers()
+    {
+     var j=document.getElementById("value11").value;
+     var k=document.getElementById("value12").value;
+     sybex.addcustomer(j,k,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+           
+
+   }
+function retproducts()
+{
+   var n=document.getElementById("value41").value;
+     var o=document.getElementById("value42").value;
+    var p=document.getElementById("value15").value;
+     var q=document.getElementById("value16").value;
+    sybex.retproducts(n,o,p,q,function(error,result){
+                if(!error){
+			alert(result); 
+                        }
+                else{
+                     alert(error);
+                   }
+             });
+           
+  
+}
+
+
+
+
+   
+
+      
+</script>
+</body>
+</html>
+
+
+
