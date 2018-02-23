@@ -101,258 +101,271 @@
 <script>
     web3.eth.defaultAccount = web3.eth.accounts[0];
         var sybexcon = web3.eth.contract([
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "pid",
-            "type": "uint256"
-          }
-        ],
-        "name": "returndetails",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bytes32"
-          },
-          {
-            "name": "",
-            "type": "uint256"
-          },
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "totalproducts",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bytes32[]"
-          },
-          {
-            "name": "",
-            "type": "uint256[]"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "totalSupply",
-        "outputs": [
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "symbol",
-        "outputs": [
-          {
-            "name": "",
-            "type": "string"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "pid",
-            "type": "uint256"
-          }
-        ],
-        "name": "search",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "_add_",
-            "type": "address"
-          }
-        ],
-        "name": "balanceOf",
-        "outputs": [
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "name",
-        "outputs": [
-          {
-            "name": "",
-            "type": "string"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "cid",
-            "type": "uint256"
-          },
-          {
-            "name": "_name",
-            "type": "string"
-          }
-        ],
-        "name": "addcustomer",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [],
-        "name": "transferether",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "pid",
-            "type": "uint256"
-          },
-          {
-            "name": "_prtname",
-            "type": "bytes32"
-          },
-          {
-            "name": "_count",
-            "type": "uint256"
-          },
-          {
-            "name": "_price",
-            "type": "uint256"
-          }
-        ],
-        "name": "addproducts",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "customer",
-            "type": "address"
-          },
-          {
-            "name": "_amo_",
-            "type": "uint256"
-          }
-        ],
-        "name": "transfer",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "cid",
-            "type": "uint256"
-          },
-          {
-            "name": "pid",
-            "type": "uint256"
-          },
-          {
-            "name": "number",
-            "type": "uint256"
-          },
-          {
-            "name": "sttime",
-            "type": "uint256"
-          }
-        ],
-        "name": "getproducts",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "cid",
-            "type": "uint256"
-          },
-          {
-            "name": "pid",
-            "type": "uint256"
-          },
-          {
-            "name": "etime",
-            "type": "uint256"
-          },
-          {
-            "name": "customer",
-            "type": "address"
-          }
-        ],
-        "name": "retproducts",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      }
-    ]);
-  var sybex = sybexcon.at('0xd2ccbc83cee67365969cb774b34e26bc89e43c69');
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "a",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalproducts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32[]"
+			},
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "pid",
+				"type": "uint256"
+			}
+		],
+		"name": "search",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "pid",
+				"type": "uint256"
+			}
+		],
+		"name": "returndetails",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_add_",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "cid",
+				"type": "uint256"
+			},
+			{
+				"name": "pid",
+				"type": "uint256"
+			},
+			{
+				"name": "etime",
+				"type": "uint256"
+			},
+			{
+				"name": "customer",
+				"type": "address"
+			}
+		],
+		"name": "retproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "transferether",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "cid",
+				"type": "uint256"
+			},
+			{
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "addcustomer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "pid",
+				"type": "uint256"
+			},
+			{
+				"name": "_prtname",
+				"type": "bytes32"
+			},
+			{
+				"name": "_count",
+				"type": "uint256"
+			},
+			{
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "addproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"name": "_amo_",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "cid",
+				"type": "uint256"
+			},
+			{
+				"name": "pid",
+				"type": "uint256"
+			},
+			{
+				"name": "number",
+				"type": "uint256"
+			},
+			{
+				"name": "sttime",
+				"type": "uint256"
+			}
+		],
+		"name": "getproducts",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]);
+  var sybex = sybexcon.at('0x8db199939c15a87b6024216579815a1bf2772fe5');
    
-
          if(!web3.isConnected()) {
   
         console.log("Ok");
@@ -390,34 +403,26 @@ function(err, result)
 var d=[];
 var l=[];
 var res=[];
-
-
 for(j=0;j<count;j++)
 {
 var a=result[0][j];
     var s = '';
-
     for (var k = 0; k < a.length; k += 2) 
     {
       s+= String.fromCharCode(parseInt(a.substr(k, 2), 16));
-
     }
 d.push(s);
 }
-
 for(i=0;i<count;i++){
 var b=result[1][i];
 l.push(b);
 }
-
 for(y=0;y<count;y++)
 res.push(" " + d[y]+" -  "+l[y]+ "  ");
 document.getElementById("pli").innerHTML=res;
 });
  
-
 }
-
        
      function addingproducts()
         {
@@ -479,7 +484,6 @@ function addcustomers()
                    }
              });
            
-
    }
 function retproducts()
 {
@@ -498,16 +502,8 @@ function retproducts()
            
   
 }
-
-
-
-
    
-
       
 </script>
 </body>
 </html>
-
-
-
